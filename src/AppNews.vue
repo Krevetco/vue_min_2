@@ -33,6 +33,14 @@ export default {
       }
     },
   },
+  emits: {
+    'open-news'(num) {
+      if (num) {
+        return true
+      }
+      console.warn('oohh')
+    }
+  },
   data () {
     return {
       isNewsOpen: this.isOpen
@@ -42,7 +50,7 @@ export default {
     open() {
       this.isNewsOpen = !this.isNewsOpen
       if (this.isNewsOpen) {
-        this.$emit('open-news')
+        this.$emit('open-news', 44)
       }
     }
   }
