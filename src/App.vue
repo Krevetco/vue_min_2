@@ -4,7 +4,12 @@
       <h2>Актуальные новости {{ now }}</h2>
     </div>
 
-    <app-news></app-news>
+    <app-news
+      :title="item.title"
+      :key="item.id"
+      v-for="item in news"
+      :id="item.id"
+    ></app-news>
   </div>
 </template>
 
@@ -15,8 +20,17 @@ export default {
     return {
       now: new Date().toLocaleDateString(),
       news: [
-        'Джо победил',
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, rerum.'
+        {
+          title: 'Джо победил',
+          id: 1,
+          isOpen: false
+        },
+        {
+          title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, rerum.',
+          id: 2,
+          isOpen: false
+        },
+
       ]
     }
   },
