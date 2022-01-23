@@ -2,6 +2,7 @@
   <div class="container pt-1">
     <div class="card">
       <h2>Актуальные новости {{ now }}</h2>
+      <span>Открыто : {{openRate}}</span>
     </div>
 
     <app-news
@@ -9,6 +10,8 @@
       :key="item.id"
       v-for="item in news"
       :id="item.id"
+      :is-open="item.isOpen"
+      v-on:open-news="openRate++"
     ></app-news>
   </div>
 </template>
@@ -31,7 +34,8 @@ export default {
           isOpen: false
         },
 
-      ]
+      ],
+      openRate: 0
     }
   },
   components: {
